@@ -71,12 +71,25 @@ public class BookController {
         try {
             bookService.deleteBookById(id);
 
-            return new ResponseEntity<>(
-                    "Xóa thành công", HttpStatus.NO_CONTENT
-            );
+            return new ResponseEntity<>("Xóa thành công", HttpStatus.NO_CONTENT);
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }
+
+
+//phân biệt
+//PUT
+// cập nhập toàn bộ
+//client gửi đầy đủ object
+// mang tính thay thế hoàn toàn
+
+//PATCH
+// cập nhập 1 phần
+// client chỉ gửi field cần sửa
+// mang tính chỉnh sửa
+
+// trong bài yêu cầu: Cập nhật toàn bộ thông tin sách theo id
+//-> dùng PUT
